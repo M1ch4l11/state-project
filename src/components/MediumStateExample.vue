@@ -1,15 +1,13 @@
 <template>
-  <!-- Cart Store -->
-  <h1>Works</h1>
   <main>
     <div v-for="(item, index) in cartStore.products" :key="index">
-      <h2>{{ item.name }}</h2>
       <img
         style="width: 35%"
-        :src="'../image/' + item.image"
         :alt="item.name"
+        :src="require('../images/' + item.image)"
       />
       <h3>Price: {{ item.price }}</h3>
+      <button @click="cartStore.addItem(item)">move to basket</button>
     </div>
   </main>
 </template>
